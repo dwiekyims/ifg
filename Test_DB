@@ -1,0 +1,46 @@
+create table users (
+    user_id serial,
+    user_name varchar(20),
+    user_email  varchar(55),
+    user_password  varchar(255),
+    user_handphone  varchar(15),
+	constraint user_id_pk primary key (user_id),
+	constraint user_name_uq unique (user_name),
+	constraint user_email_uq unique (user_email),
+	constraint user_handphone_uq unique (user_handphone)
+);
+
+insert into users (user_id,user_name,user_email,user_password,user_handphone) values (1,'Fika','fika@gmail.com','$2b$10$dwpp1vEo8k04xruXmgsSz.PDUiedoLWRrZN1CkK3npWXo8B2KLdx6','081111111111');
+insert into users (user_id,user_name,user_email,user_password,user_handphone) values (2,'Rendra','rendra@gmail.com','$2b$10$dwpp1vEo8k04xruXmgsSz.PDUiedoLWRrZN1CkK3npWXo8B2KLdx6','082222222222');
+insert into users (user_id,user_name,user_email,user_password,user_handphone) values (3,'Anya','anya@gmail.com','$2b$10$dwpp1vEo8k04xruXmgsSz.PDUiedoLWRrZN1CkK3npWXo8B2KLdx6','0828888');
+insert into users (user_id,user_name,user_email,user_password,user_handphone) values (4,'Jiso','jiso@gmail.com','$2b$10$dwpp1vEo8k04xruXmgsSz.PDUiedoLWRrZN1CkK3npWXo8B2KLdx6','08221133');
+insert into users (user_id,user_name,user_email,user_password,user_handphone) values (5,'diancp','diancp@gmail.com','$2b$10$dwpp1vEo8k04xruXmgsSz.PDUiedoLWRrZN1CkK3npWXo8B2KLdx6','082211');
+
+
+create table jobs(
+    jobs_id  serial,
+    jobs_post_no  varchar(20),
+    jobs_title  varchar(85),
+    jobs_start_date  timestamp,
+    jobs_end_date  timestamp,
+    jobs_upto_salary  numeric(15,2),
+    job_upto_experience  integer,
+    jobs_description  varchar(500),
+    jobs_primary_skill  varchar(255),
+    jobs_secondary_skill  varchar(255),
+    jobs_industry_type  varchar(25),
+    jobs_working_type  varchar(15),
+    jobs_publish  boolean,
+    jobs_remotely  boolean,
+    jobs_spec_education  varchar(25),
+    jobs_benefit  varchar(500),
+    jobs_specification  varchar(100),
+    jobs_status  varchar(15),
+    jobs_location  varchar(255),
+    jobs_city  varchar(85),
+    jobs_user_id  integer,
+    constraint jobs_id_pk primary key (jobs_id),
+    constraint jobs_user_id_fk foreign key (jobs_user_id) references users(user_id)
+);
+
+insert into jobs (jobs_id, jobs_title, jobs_description) values (5,'diancp','diancp@gmail.com','$2b$10$dwpp1vEo8k04xruXmgsSz.PDUiedoLWRrZN1CkK3npWXo8B2KLdx6','082211');
